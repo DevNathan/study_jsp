@@ -2,15 +2,8 @@
 수업 일수 --.--.23 ~ ---
 
 # JSP
-### 목차
-
 ***
-## JSP
-### JSP란?
-    JAVA Server Page, HTML을 중심으로 자바와 같이 연동하여 사용하는 웹 언어이다.
-    HTML코드 안에 JAVA코드를 작성할 수 있는 언어이다.
-
-### 웹과 서버
+## 웹과 서버
 - 웹
 
         페이지 요청과 응답이 일어나는 장소.
@@ -42,6 +35,7 @@
         Thread에 의해 서블릿에 있는 service() 메소드가 호출된다.
         전송 방식 요청에 맞게 doGet() 또는 doPost()등의 메소드를 호출한다.
 
+***
 ## EL과 JSTL
     자바 구문을 라이브러리 형태로 만들어 놓고 필요할 때마다 태그로 꺼내쓰는 기술이다.
     JSP 페이지 내에서 자바 코드와 HTML 코드가 섞여 있으면 가독성이 떨어지고 복잡해진다.
@@ -60,3 +54,45 @@
     ${param.name} : 전달받은 데이터 중 쿼리스트링으로 작성된 데이터에서 name을 찾는다.
     ${requestScope.name} : request 객체에 담긴 데이터 중 name을 찾는다.
     ${sessionScope.name} : session 객체에 담긴 데이터 중 name을 찾는다.
+
+### EL 문법
+    %, mod
+    &&, and
+    ||, or
+    >, lt
+    <, gt
+    >=, le
+    <=, ge
+    ==, eq
+    !=, ne
+    !, not
+    empty: 값 비어있으면 true, 아니면 false
+
+### JSTL(JSP Standard Tag Libarary)
+    연산자나 조건문, 반복문 등을 편하게 처리할 수 있으며, SJP 페이지 내에서 자바코드를 사용하지 않고
+    로직을 구현할 수 있도록 효율적인 방법을 제공한다.
+    
+    자바                                  JSTL
+     
+    <%for(초기식; 조건식; 증감식){}%>      <c:forEach var="" begin="" end=""></c:forEach>
+    <%for(자료형 변수명 : 반복자){}%>      <c:forEach var="" items="${반복자}"></c:forEach>
+
+### Core 태그의 종류
+    <c:set>      : 변수 선언
+    <c:out>      : 변수 출력(사용)
+    <c:if>      : if문
+    <c:choose>   : else if문 시작
+    <c:when>   : else if문
+    <c:otherwise>   : else문
+    <c:forEach>   : for문
+
+***
+## JSP
+### JSP란?
+    JAVA Server Page, HTML을 중심으로 자바와 같이 연동하여 사용하는 웹 언어이다.
+    HTML코드 안에 JAVA코드를 작성할 수 있는 언어이다.
+
+    각 페이지마다 필요 시 자바 코드가 작성되며, DB와 연결하는 코드도 jsp파일 안에서
+    모두 작성된다. 분리되어 있지 않기 때문에 규모가 작은 프로젝트에 어울리는 방식이며,
+    코드가 확장될 수록 가독성이 떨어지고 분업과 유지보수가 좋지 않다.
+
